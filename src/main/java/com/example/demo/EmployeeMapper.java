@@ -1,9 +1,6 @@
 package com.example.demo;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -15,4 +12,7 @@ public interface EmployeeMapper {
     @Insert("insert into employee(name) values( #{employee.name} )")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(@Param("employee") Employee employee);
+
+    @Select("select * from employee where id=#{id}")
+    Employee getById(@Param("id") int id);
 }

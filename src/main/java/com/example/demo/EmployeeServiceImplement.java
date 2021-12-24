@@ -24,4 +24,9 @@ public class EmployeeServiceImplement implements EmployeeService {
     public int insert(Employee employee) {
         return employeeMapper.insert(employee);
     }
+
+    @Override
+    public Employee getById(int id) {
+        return employeeMapper.getById(id);
+    }
 }
