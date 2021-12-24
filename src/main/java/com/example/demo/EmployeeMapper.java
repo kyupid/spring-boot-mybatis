@@ -1,13 +1,16 @@
 package com.example.demo;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Repository
 @Mapper
 public interface EmployeeMapper {
 
     List<Employee> getEmployee();
+
+    @Insert("insert into employee(name) values( #{employee.name} )")
+    int insert(@Param("employee") Employee employee);
 }
