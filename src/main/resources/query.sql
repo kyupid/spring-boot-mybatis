@@ -9,3 +9,6 @@ create table employee
 
 INSERT INTO employee
 VALUES (1, 'kyu');
+
+INSERT INTO employee
+VALUES (2, 'kim');

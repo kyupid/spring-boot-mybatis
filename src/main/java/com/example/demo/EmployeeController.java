@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class EmployeeController {
@@ -19,7 +18,7 @@ public class EmployeeController {
 
     @GetMapping("/employee")
     @ResponseBody
-    public List<Map<String, Object>> getEmployee() {
+    public List<Employee> getEmployee() {
         return employeeService.getEmployee();
     }
 }
