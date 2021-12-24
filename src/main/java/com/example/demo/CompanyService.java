@@ -1,4 +1,11 @@
 package com.example.demo;
 
-public class CompanyService {
+import java.util.List;
+
+public interface CompanyService {
+    List<Company> getAll();
+
+    int insert(Company company);
+
+    Company getById(int id);
 }
