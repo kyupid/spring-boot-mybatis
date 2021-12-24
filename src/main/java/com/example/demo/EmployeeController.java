@@ -1,12 +1,12 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/employee")
 public class EmployeeController {
     private EmployeeServiceImplement employeeService;
 
@@ -15,9 +15,15 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/employee")
+    @GetMapping("/")
     @ResponseBody
     public List<Employee> getEmployee() {
         return employeeService.getEmployee();
+    }
+
+    @PostMapping("/post")
+    public int post(@RequestBody Employee employee) {
+        employeeService.insert(employee);
+        return 1;
     }
 }

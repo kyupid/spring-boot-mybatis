@@ -5,4 +5,6 @@ import java.util.List;
 public interface EmployeeService {
 
     List<Employee> getEmployee();
+
+    int insert(Employee employee);
 }
