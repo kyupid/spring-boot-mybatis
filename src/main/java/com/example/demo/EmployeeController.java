@@ -15,10 +15,10 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     @ResponseBody
-    public List<Employee> getEmployee() {
-        return employeeService.getEmployee();
+    public List<Employee> getAll() {
+        return employeeService.getAll();
     }
 
     @PostMapping("/post")

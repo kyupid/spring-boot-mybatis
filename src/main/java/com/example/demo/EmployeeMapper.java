@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface EmployeeMapper {
 
-    List<Employee> getEmployee();
+    List<Employee> getAll();
 
     @Insert("insert into employee(name) values( #{employee.name} )")
     int insert(@Param("employee") Employee employee);
