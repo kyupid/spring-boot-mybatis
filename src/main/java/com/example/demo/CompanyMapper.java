@@ -6,6 +6,7 @@ import java.util.List;
 
 @Mapper
 public interface CompanyMapper {
+    @Select("select * from company")
     List<Company> getAll();
 
     @Insert("insert into company(name) values( #{company.name} )")

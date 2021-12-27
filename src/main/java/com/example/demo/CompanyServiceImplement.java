@@ -7,16 +7,24 @@ import java.util.List;
 
 @Service
 public class CompanyServiceImplement implements CompanyService {
-    private CompanyMapper companyMapper;
 
-    @Autowired
-    public CompanyServiceImplement(CompanyMapper companyMapper) {
+    private final CompanyMapper companyMapper;
+    private final EmployeeMapper employeeMapper;
+
+    public CompanyServiceImplement(CompanyMapper companyMapper, EmployeeMapper employeeMapper) {
         this.companyMapper = companyMapper;
+        this.employeeMapper = employeeMapper;
     }
 
     @Override
     public List<Company> getAll() {
-        return companyMapper.getAll();
+        List<Company> companyList = companyMapper.getAll();
+        if (companyList != null && companyList.size() > 0) {
+            for (Company company : companyList) {
+                company.setEmployeeList(employeeMapper.getByCompanyId(company.getId()));
+            }
+        }
+        return companyList;
     }
 
     @Override
