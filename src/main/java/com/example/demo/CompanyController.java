@@ -22,7 +22,7 @@ public class CompanyController {
     }
 
     @PostMapping("/post")
-    public Company post(@RequestBody Company company) {
+    public Company post(@RequestBody Company company) throws Exception {
 //        companyService.insert(company);
         companyService.add(company);
         return company;

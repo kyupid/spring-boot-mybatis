@@ -33,12 +33,12 @@ public class CompanyServiceImplement implements CompanyService {
     }
 
     @Override
-    @Transactional
-    public Company add(Company company) {
+    @Transactional(rollbackFor = Exception.class)
+    public Company add(Company company) throws Exception {
         companyMapper.insert(company);
         // add company into legacy system
         if (true) {
-            throw new RuntimeException("Legacy Exception");
+            throw new Exception("Legacy Exception");
         }
         return company;
     }

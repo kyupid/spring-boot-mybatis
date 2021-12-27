@@ -9,5 +9,5 @@ public interface CompanyService {
 
     Company getById(int id);
 
-    Company add(Company company);
+    Company add(Company company) throws Exception;
 }
