@@ -8,4 +8,6 @@ public interface CompanyService {
     int insert(Company company);
 
     Company getById(int id);
+
+    Company add(Company company);
 }

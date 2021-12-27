@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -30,5 +30,16 @@ public class CompanyServiceImplement implements CompanyService {
     @Override
     public Company getById(int id) {
         return companyMapper.getById(id);
+    }
+
+    @Override
+    @Transactional
+    public Company add(Company company) {
+        companyMapper.insert(company);
+        // add company into legacy system
+        if (true) {
+            throw new RuntimeException("Legacy Exception");
+        }
+        return company;
     }
 }

@@ -23,7 +23,8 @@ public class CompanyController {
 
     @PostMapping("/post")
     public Company post(@RequestBody Company company) {
-        companyService.insert(company);
+//        companyService.insert(company);
+        companyService.add(company);
         return company;
     }
 
