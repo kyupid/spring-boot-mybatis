@@ -9,7 +9,7 @@ public interface EmployeeMapper {
 
     List<Employee> getAll();
 
-    @Insert("insert into employee(name) values( #{employee.name} )")
+    @Insert("insert into employee(company_id, name, age) values( #{employee.company_id}, #{employee.name}, #{employee.age} )")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(@Param("employee") Employee employee);
 
