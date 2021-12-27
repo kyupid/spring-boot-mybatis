@@ -19,11 +19,6 @@ public class CompanyServiceImplement implements CompanyService {
     @Override
     public List<Company> getAll() {
         List<Company> companyList = companyMapper.getAll();
-        if (companyList != null && companyList.size() > 0) {
-            for (Company company : companyList) {
-                company.setEmployeeList(employeeMapper.getByCompanyId(company.getId()));
-            }
-        }
         return companyList;
     }
 
