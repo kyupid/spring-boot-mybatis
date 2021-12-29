@@ -29,4 +29,9 @@ public class EmployeeServiceImplement implements EmployeeService {
     public Employee getById(int id) {
         return employeeMapper.getById(id);
     }
+
+    @Override
+    public List<Employee> getByCompanyId(int companyId) {
+        return employeeMapper.getByCompanyId(companyId);
+    }
 }
