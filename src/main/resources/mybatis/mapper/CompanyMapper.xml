@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.CompanyMapper">
+    <resultMap type="Company" id="CompanyMap">
+        <id property="id" column="id" />
+        <collection property="employeeList" column="id" select="com.example.demo.EmployeeMapper.getByCompanyId" />
+    </resultMap>
+
+    <select id="getAll" resultMap="CompanyMap" resultType="Company">
+        select * from company;
+    </select>
+</mapper>
