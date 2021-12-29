@@ -11,8 +11,7 @@ public interface EmployeeMapper {
 
     int insert(Employee employee);
 
-    @Select("select * from employee where id=#{id}")
-    Employee getById(@Param("id") int id);
+    Employee getById(int id);
 
     @Select("select * from employee where company_id=#{companyId}")
     List<Employee> getByCompanyId(@Param("companyId") int companyId);

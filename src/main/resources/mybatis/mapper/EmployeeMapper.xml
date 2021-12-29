@@ -8,8 +8,13 @@
         FROM employee;
     </select>
 
-    <insert id="insert" parameterType="Employee" useGeneratedKeys = "true" keyProperty = "id">
-        INSERT INTO employee (company_id, name, age) VALUES (#{company_id}, #{name}, ${age});
+    <insert id="insert" parameterType="Employee" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO employee (company_id, name, age)
+        VALUES (#{company_id}, #{name}, ${age});
     </insert>
+
+    <select id="getById" resultType="Employee">
+        select * from employee where id=#{id}
+    </select>
 
 </mapper>
