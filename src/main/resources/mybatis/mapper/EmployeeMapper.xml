@@ -4,6 +4,12 @@
 
 <mapper namespace="com.example.demo.EmployeeMapper">
     <select id="getAll" resultType="Employee">
-        SELECT * FROM employee;
+        SELECT *
+        FROM employee;
     </select>
+
+    <insert id="insert" parameterType="Employee" useGeneratedKeys = "true" keyProperty = "id">
+        INSERT INTO employee (company_id, name, age) VALUES (#{company_id}, #{name}, ${age});
+    </insert>
+
 </mapper>
