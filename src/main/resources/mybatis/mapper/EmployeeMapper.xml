@@ -17,4 +17,8 @@
         select * from employee where id=#{id}
     </select>
 
+    <select id="getByCompanyId" resultType="Employee">
+        select * from employee where company_id=#{company_id}
+    </select>
+
 </mapper>

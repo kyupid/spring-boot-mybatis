@@ -9,4 +9,6 @@ public interface EmployeeService {
     int insert(Employee employee);
 
     Employee getById(int id);
+
+    List<Employee> getByCompanyId(int companyId);
 }
