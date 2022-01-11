@@ -14,4 +14,6 @@ public interface EmployeeMapper {
     Employee getById(int id);
 
     List<Employee> getByCompanyId(int companyId);
+
+    void update(Employee employee);
 }
