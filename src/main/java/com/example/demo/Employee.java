@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class Employee {
-    private int id;
-    private int company_id;
+    private Integer id;
+    private Integer company_id;
     private String name;
-    private int age;
+    private Integer age;
 }

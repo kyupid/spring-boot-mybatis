@@ -14,11 +14,32 @@
     </insert>
 
     <select id="getById" resultType="Employee">
-        select * from employee where id=#{id}
+        select *
+        from employee
+        where id = #{id}
     </select>
 
     <select id="getByCompanyId" resultType="Employee">
-        select * from employee where company_id=#{company_id}
+        select *
+        from employee
+        where company_id = #{company_id}
     </select>
+
+    <update id="update" parameterType="Employee">
+        update employee
+        <choose>
+            <when test="company_id != null">
+                set company_id = #{company_id}
+            </when>
+            <when test="name != null">
+                set name = #{name}
+            </when>
+            <when test="age != null">
+                set age =  ${age}
+            </when>
+        </choose>
+        where id = #{id}
+    </update>
+
 
 </mapper>

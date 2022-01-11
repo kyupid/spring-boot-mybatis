@@ -34,4 +34,8 @@ public class EmployeeServiceImplement implements EmployeeService {
     public List<Employee> getByCompanyId(int companyId) {
         return employeeMapper.getByCompanyId(companyId);
     }
+
+    public void update(Employee employee) {
+        employeeMapper.update(employee);
+    }
 }

@@ -36,4 +36,11 @@ public class EmployeeController {
     public List<Employee> getByCompanyId(@PathVariable("company_id") int company_id) {
         return employeeService.getByCompanyId(company_id);
     }
+
+    @PostMapping("/update/{id}")
+    public void update(@RequestBody Employee employee, @PathVariable("id") int id) {
+        employee.setId(id);
+        System.out.println(employee);
+        employeeService.update(employee);
+    }
 }
